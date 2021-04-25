@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './components/Login';
 
-const App: FC = () => (
+const App: React.FC = () => (
     <div className="App">
         <Router>
             <Switch>
