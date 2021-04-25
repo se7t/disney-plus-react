@@ -24,17 +24,6 @@ const Content = styled(`div`)`
     width: 100%;
 `;
 
-const BackgroundImage = styled(`div`)`
-    background-image: url('/images/login-background.webp');
-    background-position: top;
-    background-size: cover;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: -1;
-`;
-
 const CallToAction = styled(`div`)`
     align-items: center;
     display: flex;
@@ -52,13 +41,6 @@ const CallToAction = styled(`div`)`
 const LogosTop = styled(`img`)`
     display: block;
     margin-bottom: 12px;
-    width: clamp(1px, 600px, 100%);
-`;
-
-const LogosBottom = styled(`img`)`
-    display: inline-block;
-    margin-bottom: 20px;
-    vertical-align: bottom;
     width: clamp(1px, 600px, 100%);
 `;
 
@@ -83,6 +65,24 @@ const Description = styled(`p`)`
     letter-spacing: 0.4px;
     line-height: 1.5;
     margin: 0 0 24px;
+`;
+
+const LogosBottom = styled(`img`)`
+    display: inline-block;
+    margin-bottom: 20px;
+    vertical-align: bottom;
+    width: clamp(1px, 600px, 100%);
+`;
+
+const BackgroundImage = styled(`div`)`
+    background-image: url('/images/login-background.webp');
+    background-position: top;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: -1;
 `;
 
 const Login: React.FC = () => {
