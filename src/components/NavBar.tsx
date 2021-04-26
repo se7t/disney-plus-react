@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
+import { auth, provider } from '../firebase';
 
 const Nav = styled(`nav`)`
     align-items: center;
@@ -111,6 +112,17 @@ const LoginButton = styled(`a`)`
 `;
 
 const NavBar: React.FC = () => {
+    const handleAuth: any = () =>
+        auth
+            .signInWithPopup(provider)
+            .then((result: Record<string, unknown>) => {
+                console.log(result);
+                return result;
+            })
+            .catch((error: Error) => {
+                alert(error.message);
+                return false;
+            });
     return (
         <Nav>
             <Logo>
@@ -148,7 +160,7 @@ const NavBar: React.FC = () => {
                     <span>Series</span>
                 </a>
             </Menu>
-            <LoginButton>Login</LoginButton>
+            <LoginButton onClick={handleAuth}>Login</LoginButton>
         </Nav>
     );
 };
