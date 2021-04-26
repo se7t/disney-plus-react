@@ -1,7 +1,16 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { auth, provider } from '../firebase';
+import {
+    selectUserName,
+    selectUserPhoto,
+    setUserLoginDetails,
+} from '../features/user/userSlice';
+
+import { AppDispatch } from '../app/store';
 
 const Nav = styled(`nav`)`
     align-items: center;
@@ -111,58 +120,90 @@ const LoginButton = styled(`a`)`
     }
 `;
 
+const UserImage = styled(`img`)`
+    height: 100%;
+`;
+
 const NavBar: React.FC = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const history = useHistory();
+    const userName = useSelector(selectUserName);
+    const userPhoto = useSelector(selectUserPhoto);
+
+    const setUser = (user: Record<string, string>): void => {
+        dispatch(
+            setUserLoginDetails({
+                name: user.displayName as string,
+                email: user.email as string,
+                photo: user.photoURL as string,
+            })
+        );
+    };
+
     const handleAuth: React.MouseEventHandler = () =>
         auth
             .signInWithPopup(provider)
             .then((result: Record<string, unknown>) => {
-                // eslint-disable-next-line no-console
-                console.log(result);
-                return result;
+                setUser(result.user as Record<string, string>);
             })
             .catch((error: Error) => {
                 // eslint-disable-next-line no-alert
                 alert(error.message);
-                return false;
             });
     return (
         <Nav>
             <Logo>
                 <img src="/images/logo.svg" alt="Disney+ Logo" />
             </Logo>
-            <Menu>
-                <a href="/home">
-                    <img src="/images/home-icon.svg" alt="Home icon" />
-                    <span>Home</span>
-                </a>
-                <a href="/search">
-                    <img src="/images/search-icon.svg" alt="Search icon" />
-                    <span>Search</span>
-                </a>
-                <a href="/watchlist">
-                    <img
-                        src="/images/watchlist-icon.svg"
-                        alt="Watchlist icon"
-                    />
-                    <span>Watchlist</span>
-                </a>
-                <a href="/original">
-                    <img
-                        src="/images/originals-icon.svg"
-                        alt="Originals icon"
-                    />
-                    <span>Originals</span>
-                </a>
-                <a href="/movies">
-                    <img src="/images/movies-icon.svg" alt="Movies icon" />
-                    <span>Movies</span>
-                </a>
-                <a href="/series">
-                    <img src="/images/series-icon.svg" alt="Series icon" />
-                    <span>Series</span>
-                </a>
-            </Menu>
-            <LoginButton onClick={handleAuth}>Login</LoginButton>
+
+            {!userName ? (
+                <LoginButton onClick={handleAuth}>Login</LoginButton>
+            ) : (
+                <>
+                    <Menu>
+                        <a href="/home">
+                            <img src="/images/home-icon.svg" alt="Home icon" />
+                            <span>Home</span>
+                        </a>
+                        <a href="/search">
+                            <img
+                                src="/images/search-icon.svg"
+                                alt="Search icon"
+                            />
+                            <span>Search</span>
+                        </a>
+                        <a href="/watchlist">
+                            <img
+                                src="/images/watchlist-icon.svg"
+                                alt="Watchlist icon"
+                            />
+                            <span>Watchlist</span>
+                        </a>
+                        <a href="/original">
+                            <img
+                                src="/images/originals-icon.svg"
+                                alt="Originals icon"
+                            />
+                            <span>Originals</span>
+                        </a>
+                        <a href="/movies">
+                            <img
+                                src="/images/movies-icon.svg"
+                                alt="Movies icon"
+                            />
+                            <span>Movies</span>
+                        </a>
+                        <a href="/series">
+                            <img
+                                src="/images/series-icon.svg"
+                                alt="Series icon"
+                            />
+                            <span>Series</span>
+                        </a>
+                    </Menu>
+                    <UserImage src={userPhoto} alt={`${userName} photo`} />
+                </>
+            )}
         </Nav>
     );
 };
