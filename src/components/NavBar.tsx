@@ -112,14 +112,16 @@ const LoginButton = styled(`a`)`
 `;
 
 const NavBar: React.FC = () => {
-    const handleAuth: any = () =>
+    const handleAuth: React.MouseEventHandler = () =>
         auth
             .signInWithPopup(provider)
             .then((result: Record<string, unknown>) => {
+                // eslint-disable-next-line no-console
                 console.log(result);
                 return result;
             })
             .catch((error: Error) => {
+                // eslint-disable-next-line no-alert
                 alert(error.message);
                 return false;
             });
