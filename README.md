@@ -20,7 +20,7 @@
 
 In the project's root directory create a `.env.development.local` file with the following content:
 ```
-// Input the values from your firebase config
+// Input the values from your project's Firebase SDK snippet
 
 REACT_APP_FIREBASE_API_KEY=
 REACT_APP_FIREBASE_AUTH_DOMAIN=
