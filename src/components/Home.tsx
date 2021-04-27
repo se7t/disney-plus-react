@@ -3,20 +3,20 @@ import styled from '@emotion/styled';
 import ImageSlider from './ImageSlider';
 
 const Container = styled(`main`)`
-    position: relative;
+    display: block;
     min-height: calc(100vh - 250px);
     overflow-x: hidden;
-    display: block;
-    top: 4.375rem;
     padding: 0 calc(3.5vw + 5px);
+    position: relative;
+    top: 4.375rem;
 
     &:after {
         background: url('/images/home-background.webp') center center / cover
             no-repeat fixed;
         content: '';
-        position: absolute;
         inset: 0px;
         opacity: 1;
+        position: absolute;
         z-index: -1;
     }
 `;

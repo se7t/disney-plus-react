@@ -11,8 +11,8 @@ const Carousel = styled(Slider)`
     margin-top: 20px;
 
     & > button {
-        opacity: 0;
         height: 100%;
+        opacity: 0;
         width: 5vw;
         z-index: 1;
 
@@ -24,8 +24,8 @@ const Carousel = styled(Slider)`
 
     ul li button {
         &:before {
-            font-size: 0.625rem;
             color: rgb(150, 158, 171);
+            font-size: 0.625rem;
         }
     }
 
@@ -57,17 +57,17 @@ const CarouselItem = styled(`div`)`
             rgb(0 0 0 / 73%) 0px 16px 10px -10px;
         cursor: pointer;
         display: block;
-        position: relative;
         padding: 4px;
+        position: relative;
 
         img {
-            width: 100%;
             height: 100%;
+            width: 100%;
         }
 
         &:hover {
-            padding: 0;
             border: 4px solid rgba(249, 249, 249, 0.8);
+            padding: 0;
             transition-duration: 300ms;
         }
     }

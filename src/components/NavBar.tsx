@@ -126,32 +126,32 @@ const UserImage = styled(`img`)`
 `;
 
 const DropDown = styled(`div`)`
-    position: absolute;
-    top: 48px;
-    right: 0px;
     background: #040714;
-    border: 1px solid rgba(151, 151, 151, 0.34);
     border-radius: 4px;
+    border: 1px solid rgba(151, 151, 151, 0.34);
     box-shadow: rgb(0 0 0 / 50%) 0px 0px 0px 18px 0px;
-    padding: 10px;
     font-size: 0.875rem;
     letter-spacing: 3px;
-    width: 110px;
     opacity: 0;
+    padding: 10px;
+    position: absolute;
+    right: 0px;
+    top: 48px;
+    width: 110px;
 `;
 
 const UserControl = styled(`div`)`
-    position: relative;
-    height: 3rem;
-    width: 3rem;
-    cursor: pointer;
     align-items: center;
+    cursor: pointer;
+    height: 3rem;
     justify-content: center;
+    position: relative;
+    width: 3rem;
 
     ${UserImage} {
         border-radius: 50%;
-        width: 100%;
         height: 100%;
+        width: 100%;
     }
 
     &:hover {
