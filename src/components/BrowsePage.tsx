@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import ImageSlider from './ImageSlider';
 import Producers from './Producers';
+import Recommendations from './Recommendations';
 
 const Container = styled(`main`)`
     display: block;
@@ -27,6 +28,7 @@ const BrowsePage: React.FC = () => {
         <Container>
             <ImageSlider />
             <Producers />
+            <Recommendations />
         </Container>
     );
 };
