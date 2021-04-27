@@ -103,7 +103,7 @@ const ImageSlider: React.FC = () => {
             <CarouselItem>
                 <a>
                     <img
-                        src="/images/slider/onward-screenshot.webp"
+                        src="/images/slider/burrow-screenshot.webp"
                         alt="Onward screenshot"
                     />
                 </a>
