@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { auth, provider } from '../firebase';
 import {
     selectUserName,
     selectUserPhoto,
+    setSignOutState,
     setUserLoginDetails,
 } from '../features/user/userSlice';
 
@@ -124,6 +125,45 @@ const UserImage = styled(`img`)`
     height: 100%;
 `;
 
+const DropDown = styled(`div`)`
+    position: absolute;
+    top: 48px;
+    right: 0px;
+    background: #040714;
+    border: 1px solid rgba(151, 151, 151, 0.34);
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 50%) 0px 0px 0px 18px 0px;
+    padding: 10px;
+    font-size: 0.875rem;
+    letter-spacing: 3px;
+    width: 110px;
+    opacity: 0;
+`;
+
+const UserControl = styled(`div`)`
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+
+    ${UserImage} {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover {
+        ${DropDown} {
+            opacity: 1;
+            transition-duration: 1s;
+        }
+    }
+`;
+
+const SignOutButton = styled(`a`)``;
+
 const NavBar: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const history = useHistory();
@@ -150,16 +190,27 @@ const NavBar: React.FC = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userName]);
 
-    const handleAuth: React.MouseEventHandler = () =>
-        auth
-            .signInWithPopup(provider)
-            .then((result: Record<string, unknown>) => {
-                setUser(result.user as Record<string, string>);
-            })
-            .catch((error: Error) => {
+    const handleAuth: React.MouseEventHandler = () => {
+        if (!userName) {
+            auth.signInWithPopup(provider)
+                .then((result: Record<string, unknown>) => {
+                    setUser(result.user as Record<string, string>);
+                })
+                .catch((error: Error) => {
+                    // eslint-disable-next-line no-alert
+                    alert(error.message);
+                });
+        } else if (userName) {
+            auth.signOut()
+                .then(() => {
+                    dispatch(setSignOutState());
+                    history.push('/');
+                })
                 // eslint-disable-next-line no-alert
-                alert(error.message);
-            });
+                .catch((error: Error) => alert(error.message));
+        }
+    };
+
     return (
         <Nav>
             <Logo>
@@ -211,7 +262,14 @@ const NavBar: React.FC = () => {
                             <span>Series</span>
                         </a>
                     </Menu>
-                    <UserImage src={userPhoto} alt={`${userName} photo`} />
+                    <UserControl>
+                        <UserImage src={userPhoto} alt={`${userName} photo`} />
+                        <DropDown>
+                            <SignOutButton onClick={handleAuth}>
+                                Sign out
+                            </SignOutButton>
+                        </DropDown>
+                    </UserControl>
                 </>
             )}
         </Nav>
