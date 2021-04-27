@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import ImageSlider from './ImageSlider';
+import Producers from './Producers';
 
 const Container = styled(`main`)`
     display: block;
@@ -25,6 +26,7 @@ const Home: React.FC = () => {
     return (
         <Container>
             <ImageSlider />
+            <Producers />
         </Container>
     );
 };
