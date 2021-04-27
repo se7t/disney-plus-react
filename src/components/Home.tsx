@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import ImageSlider from './ImageSlider';
 
 const Container = styled(`main`)`
     position: relative;
@@ -21,7 +22,11 @@ const Container = styled(`main`)`
 `;
 
 const Home: React.FC = () => {
-    return <Container>Hi</Container>;
+    return (
+        <Container>
+            <ImageSlider />
+        </Container>
+    );
 };
 
 export default Home;
