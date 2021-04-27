@@ -4,6 +4,7 @@ import ImageSlider from './ImageSlider';
 import Producers from './Producers';
 import Recommendations from './Recommendations';
 import NewArrivals from './NewArrivals';
+import Originals from './Originals';
 
 const Container = styled(`main`)`
     display: block;
@@ -31,6 +32,7 @@ const BrowsePage: React.FC = () => {
             <Producers />
             <Recommendations />
             <NewArrivals />
+            <Originals />
         </Container>
     );
 };
