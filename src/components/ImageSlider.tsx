@@ -87,7 +87,7 @@ const ImageSlider: React.FC = () => {
             <CarouselItem>
                 <a>
                     <img
-                        src="/images/slider-onward-poster.webp"
+                        src="/images/slider/onward-poster.webp"
                         alt="Onward poster"
                     />
                 </a>
@@ -95,7 +95,7 @@ const ImageSlider: React.FC = () => {
             <CarouselItem>
                 <a>
                     <img
-                        src="/images/slider-wandavision-poster.webp"
+                        src="/images/slider/wandavision-poster.webp"
                         alt="WandaVision poster"
                     />
                 </a>
@@ -103,7 +103,7 @@ const ImageSlider: React.FC = () => {
             <CarouselItem>
                 <a>
                     <img
-                        src="/images/slider-onward-screenshot.webp"
+                        src="/images/slider/onward-screenshot.webp"
                         alt="Onward screenshot"
                     />
                 </a>
@@ -111,7 +111,7 @@ const ImageSlider: React.FC = () => {
             <CarouselItem>
                 <a>
                     <img
-                        src="/images/slider-wandavision-screenshot.webp"
+                        src="/images/slider/wandavision-screenshot.webp"
                         alt="WandaVision poster"
                     />
                 </a>

@@ -75,7 +75,7 @@ const LogosBottom = styled(`img`)`
 `;
 
 const BackgroundImage = styled(`div`)`
-    background-image: url('/images/login-background.webp');
+    background-image: url('/images/home-background.webp');
     background-position: top;
     background-size: cover;
     height: 100%;
@@ -85,13 +85,13 @@ const BackgroundImage = styled(`div`)`
     z-index: -1;
 `;
 
-const Login: React.FC = () => {
+const HomePage: React.FC = () => {
     return (
         <Container>
             <Content>
                 <CallToAction>
                     <LogosTop
-                        src="/images/login-logos-top.webp"
+                        src="/images/home/logos-top.webp"
                         alt="Top logos"
                     />
                     <Button>SIGN UP TODAY</Button>
@@ -101,7 +101,7 @@ const Login: React.FC = () => {
                         04/20/21, the price of Disney+ will increase by $1.
                     </Description>
                     <LogosBottom
-                        src="/images/login-logos-bottom.webp"
+                        src="/images/home/logos-bottom.webp"
                         alt="Bottom logos"
                     />
                 </CallToAction>
@@ -111,4 +111,4 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export default HomePage;

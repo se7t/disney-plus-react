@@ -12,7 +12,7 @@ const Container = styled(`main`)`
     top: 4.375rem;
 
     &:after {
-        background: url('/images/home-background.webp') center center / cover
+        background: url('/images/browse-background.webp') center center / cover
             no-repeat fixed;
         content: '';
         inset: 0px;
@@ -22,7 +22,7 @@ const Container = styled(`main`)`
     }
 `;
 
-const Home: React.FC = () => {
+const BrowsePage: React.FC = () => {
     return (
         <Container>
             <ImageSlider />
@@ -31,4 +31,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default BrowsePage;

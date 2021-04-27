@@ -184,7 +184,7 @@ const NavBar: React.FC = () => {
         auth.onAuthStateChanged(async (user) => {
             if (user) {
                 setUser((user as unknown) as Record<string, string>);
-                history.push('/home');
+                history.push('/browse');
             }
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -223,40 +223,40 @@ const NavBar: React.FC = () => {
                 <>
                     <Menu>
                         <a href="/home">
-                            <img src="/images/home-icon.svg" alt="Home icon" />
+                            <img src="/images/icons/home.svg" alt="Home icon" />
                             <span>Home</span>
                         </a>
                         <a href="/search">
                             <img
-                                src="/images/search-icon.svg"
+                                src="/images/icons/search.svg"
                                 alt="Search icon"
                             />
                             <span>Search</span>
                         </a>
                         <a href="/watchlist">
                             <img
-                                src="/images/watchlist-icon.svg"
+                                src="/images/icons/watchlist.svg"
                                 alt="Watchlist icon"
                             />
                             <span>Watchlist</span>
                         </a>
                         <a href="/original">
                             <img
-                                src="/images/originals-icon.svg"
+                                src="/images/icons/originals.svg"
                                 alt="Originals icon"
                             />
                             <span>Originals</span>
                         </a>
                         <a href="/movies">
                             <img
-                                src="/images/movies-icon.svg"
+                                src="/images/icons/movies.svg"
                                 alt="Movies icon"
                             />
                             <span>Movies</span>
                         </a>
                         <a href="/series">
                             <img
-                                src="/images/series-icon.svg"
+                                src="/images/icons/series.svg"
                                 alt="Series icon"
                             />
                             <span>Series</span>

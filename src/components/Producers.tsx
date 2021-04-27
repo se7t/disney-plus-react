@@ -43,22 +43,22 @@ const Producers: React.FC = () => {
     return (
         <ProducersList>
             <ProducersItem>
-                <img src="images/producer-disney.webp" alt="Disney" />
+                <img src="images/producers/disney.webp" alt="Disney" />
             </ProducersItem>
             <ProducersItem>
-                <img src="images/producer-marvel.webp" alt="Marvel" />
+                <img src="images/producers/marvel.webp" alt="Marvel" />
             </ProducersItem>
             <ProducersItem>
                 <img
-                    src="images/producer-national-geographic.webp"
+                    src="images/producers/national-geographic.webp"
                     alt="National Geographic"
                 />
             </ProducersItem>
             <ProducersItem>
-                <img src="images/producer-pixar.webp" alt="Pixar" />
+                <img src="images/producers/pixar.webp" alt="Pixar" />
             </ProducersItem>
             <ProducersItem>
-                <img src="images/producer-starwars.webp" alt="Star Wars" />
+                <img src="images/producers/starwars.webp" alt="Star Wars" />
             </ProducersItem>
         </ProducersList>
     );

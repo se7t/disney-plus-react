@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import Login from './components/Login';
-import Home from './components/Home';
+import HomePage from './components/HomePage';
+import BrowsePage from './components/BrowsePage';
 
 const App: React.FC = () => (
     <div className="App">
@@ -10,10 +10,10 @@ const App: React.FC = () => (
             <NavBar />
             <Switch>
                 <Route exact path="/">
-                    <Login />
+                    <HomePage />
                 </Route>
-                <Route path="/home">
-                    <Home />
+                <Route path="/browse">
+                    <BrowsePage />
                 </Route>
             </Switch>
         </Router>
