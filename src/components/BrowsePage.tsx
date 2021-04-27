@@ -5,6 +5,7 @@ import Producers from './Producers';
 import Recommendations from './Recommendations';
 import NewArrivals from './NewArrivals';
 import Originals from './Originals';
+import Trending from './Trending';
 
 const Container = styled(`main`)`
     display: block;
@@ -33,6 +34,7 @@ const BrowsePage: React.FC = () => {
             <Recommendations />
             <NewArrivals />
             <Originals />
+            <Trending />
         </Container>
     );
 };
