@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -139,6 +139,16 @@ const NavBar: React.FC = () => {
             })
         );
     };
+
+    useEffect(() => {
+        auth.onAuthStateChanged(async (user) => {
+            if (user) {
+                setUser((user as unknown) as Record<string, string>);
+                history.push('/home');
+            }
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [userName]);
 
     const handleAuth: React.MouseEventHandler = () =>
         auth
