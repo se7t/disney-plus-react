@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
+import database from '../firebase';
 
 const Container = styled(`div`)`
     display: block;
@@ -111,10 +113,10 @@ const AddToWatchlist = styled(`div`)`
     border-radius: 50%;
     border: 2px solid rgb(249, 249, 249);
     cursor: pointer;
-    height: 56px;
+    height: 44px;
     justify-content: center;
     margin-right: 16px;
-    width: 56px;
+    width: 44px;
     span {
         background-color: rgb(249, 249, 249);
         display: inline-block;
@@ -142,14 +144,14 @@ const WatchTogether = styled(`div`)`
     border-radius: 50%;
     border: 2px solid white;
     cursor: pointer;
-    height: 56px;
+    height: 44px;
     justify-content: center;
-    width: 56px;
+    width: 44px;
 
     div {
         border-radius: 50%;
-        height: 36px;
-        width: 36px;
+        height: 40px;
+        width: 40px;
 
         img {
             width: 100%;
@@ -183,19 +185,50 @@ const Description = styled(`div`)`
 `;
 
 const DetailsPage: React.FC = () => {
+    const { id } = useParams<{ id: string }>();
+
+    type Data = {
+        'background-image': string;
+        'card-image': string;
+        description: string;
+        tags: string;
+        title: string;
+        'title-image': string;
+        type: string;
+    };
+
+    const [detailsData, setDetailsData] = useState<
+        Data | Record<string, string>
+    >({});
+
+    useEffect(() => {
+        database
+            .collection('movies')
+            .doc(id)
+            .get()
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            .then((document: any) => {
+                if (document.exists) {
+                    setDetailsData(document.data());
+                } else {
+                    console.log('Data not found.');
+                }
+            })
+            .catch((error: Error) => {
+                console.log('Error fetching data:', error);
+            });
+    }, [id]);
+
     return (
         <Container>
             <Background>
                 <img
-                    src="https://i.ibb.co/d6gfYYd/moana-background.webp"
-                    alt="Background"
+                    src={detailsData['background-image']}
+                    alt={`${detailsData.title} Background`}
                 />
             </Background>
             <ImageTitle>
-                <img
-                    src="https://i.ibb.co/PcyHKVQ/moana-title.webp"
-                    alt="Title"
-                />
+                <img src={detailsData['title-image']} alt={detailsData.title} />
             </ImageTitle>
             <ContentMeta>
                 <Controls>
@@ -226,8 +259,8 @@ const DetailsPage: React.FC = () => {
                         </div>
                     </WatchTogether>
                 </Controls>
-                <Tags>Tags</Tags>
-                <Description>Description</Description>
+                <Tags>{detailsData.tags}</Tags>
+                <Description>{detailsData.description}</Description>
             </ContentMeta>
         </Container>
     );
