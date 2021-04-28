@@ -49,10 +49,10 @@ export const { setMovies } = movieSlice.actions;
 export const selectRecommended: SelectFunction = (state) =>
     state.movie.recommended;
 
-export const selectNewArrival: SelectFunction = (state) =>
+export const selectNewArrivals: SelectFunction = (state) =>
     state.movie.newArrival;
 
-export const selectOriginal: SelectFunction = (state) => state.movie.original;
+export const selectOriginals: SelectFunction = (state) => state.movie.original;
 
 export const selectTrending: SelectFunction = (state) => state.movie.trending;
 
