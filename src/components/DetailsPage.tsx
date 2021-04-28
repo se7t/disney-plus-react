@@ -5,11 +5,11 @@ import database from '../firebase';
 
 const Container = styled(`div`)`
     display: block;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 72px);
     overflow-x: hidden;
     padding: 0 calc(3.5vw + 5px);
     position: relative;
-    top: 4.375rem;
+    top: 72px;
 `;
 
 const Background = styled(`div`)`
@@ -61,15 +61,16 @@ const Controls = styled(`div`)`
 const PlayButton = styled(`button`)`
     display: flex;
     align-items: center;
-    background: rgb(249, 249, 249);
+    background: hsla(0, 0%, 98%, 0.9);
     border-radius: 4px;
     border: none;
     color: #040714;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
     height: 56px;
     justify-content: center;
-    letter-spacing: 1.8px;
+    letter-spacing: 1.25px;
     margin: 0px 22px 0px 0px;
     padding: 0px 24px;
     text-align: center;
@@ -80,7 +81,7 @@ const PlayButton = styled(`button`)`
     }
 
     &:hover {
-        background: rgb(198, 198, 198);
+        background: hsla(0, 0%, 98%, 1);
         transition: all 200ms ease 0s;
     }
 
@@ -97,42 +98,42 @@ const PlayButton = styled(`button`)`
 `;
 
 const TrailerButton = styled(PlayButton)`
-    background: rgba(4, 7, 20, 0.3);
-    border: 1px solid rgb(249, 249, 249);
-    color: rgb(249, 249, 249);
+    background: hsla(228.75, 66.66%, 4.7%, 0.3);
+    border: 1px solid hsla(0, 0%, 98%, 1);
+    color: hsla(0, 0%, 98%, 1);
 
     &:hover {
-        background: rgba(4, 7, 20, 0.8);
+        background: hsla(228.75, 66.66%, 4.7%, 0.8);
     }
 `;
 
 const AddToWatchlist = styled(`div`)`
     display: flex;
     align-items: center;
-    background-color: rgba(4, 7, 20, 0.6);
+    background-color: hsla(228.75, 66.66%, 4.7%, 0.6);
     border-radius: 50%;
-    border: 2px solid rgb(249, 249, 249);
+    border: 2px solid hsla(0, 0%, 98%, 1);
     cursor: pointer;
     height: 44px;
     justify-content: center;
     margin-right: 16px;
     width: 44px;
     span {
-        background-color: rgb(249, 249, 249);
+        background-color: hsla(0, 0%, 98%, 1);
         display: inline-block;
-        &:first-child {
+        &:first-of-type {
             height: 2px;
             transform: translate(1px, 0px) rotate(0deg);
             width: 16px;
         }
-        &:nth-child(2) {
+        &:nth-of-type(2) {
             height: 16px;
             transform: translateX(-8px) rotate(0deg);
             width: 2px;
         }
     }
     &:hover {
-        background: rgba(4, 7, 20, 0.8);
+        background: hsla(228.75, 66.66%, 4.7%, 0.8);
         transition: all 200ms ease 0s;
     }
 `;
@@ -140,7 +141,7 @@ const AddToWatchlist = styled(`div`)`
 const WatchTogether = styled(`div`)`
     display: flex;
     align-items: center;
-    background-color: rgba(4, 7, 20, 0.6);
+    background-color: hsla(228.75, 66.66%, 4.7%, 0.6);
     border-radius: 50%;
     border: 2px solid white;
     cursor: pointer;
@@ -158,28 +159,30 @@ const WatchTogether = styled(`div`)`
         }
     }
     &:hover {
-        background: rgba(4, 7, 20, 0.8);
+        background: hsla(228.75, 66.66%, 4.7%, 0.8);
         transition: all 200ms ease 0s;
     }
 `;
 
-const Tags = styled(`div`)`
-    color: rgb(249, 249, 249);
+const Tags = styled(`section`)`
+    color: hsla(0, 0%, 98%, 1);
     font-size: 0.875rem;
+    letter-spacing: 0.25px;
     min-height: 20px;
 
-    @media (max-weight: 768px) {
+    @media (max-width: 768px) {
         font-size: 0.75rem;
     }
 `;
-const Description = styled(`div`)`
+const Description = styled(`section`)`
     line-height: 1.4;
     font-size: 1rem;
+    font-weight: 400;
     letter-spacing: 0.5px;
     padding: 16px 0px;
-    color: rgb(249, 249, 249);
+    color: hsla(0, 0%, 98%, 1);
 
-    @media (max-weight: 768px) {
+    @media (max-width: 768px) {
         font-size: 0.875rem;
     }
 `;

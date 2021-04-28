@@ -15,7 +15,7 @@ import { AppDispatch } from '../app/store';
 
 const Nav = styled(`nav`)`
     align-items: center;
-    background-color: #040714;
+    background-color: hsla(228.75, 66.66%, 4.7%, 1);
     display: flex;
     height: 4.375rem;
     justify-content: space-between;
@@ -60,22 +60,23 @@ const Menu = styled(`div`)`
 
         img {
             height: 1.25rem;
+            margin-right: 8px;
             min-width: 1.25rem;
             width: 1.25rem;
             z-index: auto;
         }
 
         span {
-            color: rgb(249, 249, 249);
-            font-size: 0.8125rem;
-            letter-spacing: 1.42px;
+            color: hsla(0, 0%, 98%, 1);
+            font-size: 0.875rem;
+            letter-spacing: 1.25px;
             line-height: 1.08;
             padding: 2px 0;
             position: relative;
             text-transform: uppercase;
             white-space: nowrap;
             &:before {
-                background-color: rgb(249, 249, 249);
+                background-color: hsla(0, 0%, 98%, 1);
                 border-radius: 0px 0px 4px 4px;
                 bottom: -6px;
                 content: '';
@@ -107,17 +108,17 @@ const Menu = styled(`div`)`
 `;
 
 const LoginButton = styled(`a`)`
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: hsla(0, 0%, 0%, 0.6);
     border-radius: 4px;
-    border: 1px solid #f9f9f9;
+    border: 1px solid hsla(0, 0%, 98%, 1);
     letter-spacing: 1.5px;
     padding: 8px 16px;
     text-transform: uppercase;
     transition: all 200ms ease 0s;
 
     &:hover {
-        background-color: #f9f9f9;
-        color: #040714;
+        background-color: hsla(0, 0%, 98%, 1);
+        color: hsla(228.75, 66%, 4.7%, 1);
     }
 `;
 
@@ -128,10 +129,12 @@ const UserImage = styled(`img`)`
 const DropDown = styled(`div`)`
     background: #040714;
     border-radius: 4px;
-    border: 1px solid rgba(151, 151, 151, 0.34);
+    border: 1px solid hsla(0, 0%, 59.21%, 0.34);
     box-shadow: rgb(0 0 0 / 50%) 0px 0px 0px 18px 0px;
     font-size: 0.875rem;
-    letter-spacing: 3px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1.25px;
     opacity: 0;
     padding: 10px;
     position: absolute;

@@ -6,6 +6,11 @@ import { selectNewArrivals } from '../features/movie/movieSlice';
 
 const Container = styled(`div`)`
     padding: 0 0 26px;
+
+    h4 {
+        letter-spacing: 0.5px;
+        font-weight: 400;
+    }
 `;
 
 const NewArrivalsList = styled(`div`)`
@@ -21,7 +26,7 @@ const NewArrivalsList = styled(`div`)`
 
 const NewArrivalsItem = styled(`div`)`
     border-radius: 10px;
-    border: 3px solid rgba(249, 249, 249, 0.1);
+    border: 3px solid hsla(0, 0%, 98%, 0.1);
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
         rgb(0 0 0 / 73%) 0px 16px 10px -10px;
     cursor: pointer;
@@ -44,7 +49,7 @@ const NewArrivalsItem = styled(`div`)`
     }
 
     &:hover {
-        border-color: rgba(249, 249, 249, 0.8);
+        border-color: hsla(0, 0%, 98%, 0.8);
         box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
             rgb(0 0 0 / 72%) 0px 30px 22px -10px;
         transform: scale(1.05);

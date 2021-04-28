@@ -1,7 +1,6 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 100%;
 }
 
 * {
@@ -9,8 +8,8 @@ html {
 }
 
 body {
-    background-color: #040714;
-    color: #f9f9f9;
+    background-color: hsla(228.75, 66%, 4.7%, 1);
+    color: hsl(0, 0%, 98%, 1);
     /* This should be Avenir Roman, however it is paid, so that's a replacement */
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -18,7 +17,7 @@ body {
 }
 
 a {
-    color: #f9f9f9;
+    color: hsla(0, 0%, 98%, 1);
     text-decoration: none;
 }
 

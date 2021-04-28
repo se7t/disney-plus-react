@@ -24,13 +24,13 @@ const Carousel = styled(Slider)`
 
     ul li button {
         &:before {
-            color: rgb(150, 158, 171);
+            color: hsla(217.14, 11.11%, 62.94%, 1);
             font-size: 0.625rem;
         }
     }
 
     li.slick-active button:before {
-        color: #f9f9f9;
+        color: hsl(0, 0%, 97.64%);
     }
 
     .slick-list {
@@ -66,7 +66,7 @@ const CarouselItem = styled(`div`)`
         }
 
         &:hover {
-            border: 4px solid rgba(249, 249, 249, 0.8);
+            border: 4px solid hsla(0, 0%, 98%, 0.8);
             padding: 0;
             transition-duration: 300ms;
         }

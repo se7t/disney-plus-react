@@ -45,9 +45,9 @@ const LogosTop = styled(`img`)`
 `;
 
 const Button = styled(`a`)`
-    background-color: #0063e5;
+    background-color: hsla(214.06, 100%, 44.9%, 1);
     border-radius: 4px;
-    color: #f9f9f9;
+    color: hsl(0, 0%, 97.64%);
     font-size: 1.125rem;
     font-weight: 500;
     letter-spacing: 1.25px;
@@ -55,7 +55,7 @@ const Button = styled(`a`)`
     padding: 17.5px 1px;
     width: 100%;
     &:hover {
-        background-color: #0483ee;
+        background-color: hsl(207.43, 96.69%, 47.45%);
     }
 `;
 
