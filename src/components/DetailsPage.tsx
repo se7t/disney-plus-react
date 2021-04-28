@@ -28,6 +28,22 @@ const Background = styled(`div`)`
     }
 `;
 
+const ImageTitle = styled(`div`)`
+    display: flex;
+    align-items: flex-end;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    margin: 0px auto;
+    height: 30vw;
+    min-height: 170px;
+    padding-bottom: 24px;
+    width: 100%;
+
+    img {
+        width: clamp(200px, 35vw, 600px);
+    }
+`;
+
 const DetailsPage: React.FC = () => {
     return (
         <Container>
@@ -37,6 +53,12 @@ const DetailsPage: React.FC = () => {
                     alt="Background"
                 />
             </Background>
+            <ImageTitle>
+                <img
+                    src="https://i.ibb.co/PcyHKVQ/moana-title.webp"
+                    alt="Title"
+                />
+            </ImageTitle>
         </Container>
     );
 };
