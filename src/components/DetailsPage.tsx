@@ -2,12 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const Container = styled(`div`)`
-    position: relative;
+    display: block;
     height: calc(100vh - 250px);
     overflow-x: hidden;
-    display: block;
-    top: 4.375rem;
     padding: 0 calc(3.5vw + 5px);
+    position: relative;
+    top: 4.375rem;
 `;
 
 const Background = styled(`div`)`
@@ -31,13 +31,13 @@ const Background = styled(`div`)`
 const ImageTitle = styled(`div`)`
     display: flex;
     align-items: flex-end;
-    -webkit-box-pack: start;
+    height: 30vw;
     justify-content: flex-start;
     margin: 0px auto;
-    height: 30vw;
     min-height: 170px;
     padding-bottom: 24px;
     width: 100%;
+    -webkit-box-pack: start;
 
     img {
         width: clamp(200px, 35vw, 600px);
@@ -58,20 +58,20 @@ const Controls = styled(`div`)`
 
 const PlayButton = styled(`button`)`
     display: flex;
-    font-size: 1rem;
-    margin: 0px 22px 0px 0px;
-    padding: 0px 24px;
-    height: 56px;
-    border-radius: 4px;
     align-items: center;
-    cursor: pointer;
-    justify-content: center;
-    letter-spacing: 1.8px;
-    text-align: center;
-    text-transform: uppercase;
     background: rgb(249, 249, 249);
+    border-radius: 4px;
     border: none;
     color: #040714;
+    cursor: pointer;
+    font-size: 1rem;
+    height: 56px;
+    justify-content: center;
+    letter-spacing: 1.8px;
+    margin: 0px 22px 0px 0px;
+    padding: 0px 24px;
+    text-align: center;
+    text-transform: uppercase;
 
     img {
         width: 2rem;
@@ -83,10 +83,10 @@ const PlayButton = styled(`button`)`
     }
 
     @media (max-width: 768px) {
-        height: 45px;
-        padding: 0px 12px;
         font-size: 0.75rem;
+        height: 45px;
         margin: 0px 10px 0px 0px;
+        padding: 0px 12px;
 
         img {
             width: 25px;
