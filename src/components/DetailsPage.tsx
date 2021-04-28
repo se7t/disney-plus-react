@@ -104,6 +104,63 @@ const TrailerButton = styled(PlayButton)`
     }
 `;
 
+const AddToWatchlist = styled(`div`)`
+    display: flex;
+    align-items: center;
+    background-color: rgba(4, 7, 20, 0.6);
+    border-radius: 50%;
+    border: 2px solid rgb(249, 249, 249);
+    cursor: pointer;
+    height: 56px;
+    justify-content: center;
+    margin-right: 16px;
+    width: 56px;
+    span {
+        background-color: rgb(249, 249, 249);
+        display: inline-block;
+        &:first-child {
+            height: 2px;
+            transform: translate(1px, 0px) rotate(0deg);
+            width: 16px;
+        }
+        &:nth-child(2) {
+            height: 16px;
+            transform: translateX(-8px) rotate(0deg);
+            width: 2px;
+        }
+    }
+    &:hover {
+        background: rgba(4, 7, 20, 0.8);
+        transition: all 200ms ease 0s;
+    }
+`;
+
+const WatchTogether = styled(`div`)`
+    display: flex;
+    align-items: center;
+    background-color: rgba(4, 7, 20, 0.6);
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    height: 56px;
+    justify-content: center;
+    width: 56px;
+
+    div {
+        border-radius: 50%;
+        height: 36px;
+        width: 36px;
+
+        img {
+            width: 100%;
+        }
+    }
+    &:hover {
+        background: rgba(4, 7, 20, 0.8);
+        transition: all 200ms ease 0s;
+    }
+`;
+
 const DetailsPage: React.FC = () => {
     return (
         <Container>
@@ -135,6 +192,18 @@ const DetailsPage: React.FC = () => {
                         />
                         <span>Trailer</span>
                     </TrailerButton>
+                    <AddToWatchlist>
+                        <span />
+                        <span />
+                    </AddToWatchlist>
+                    <WatchTogether>
+                        <div>
+                            <img
+                                src="/images/icons/watch-together-icon.webp"
+                                alt="Watch together"
+                            />
+                        </div>
+                    </WatchTogether>
                 </Controls>
             </ContentMeta>
         </Container>
