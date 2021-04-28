@@ -161,6 +161,27 @@ const WatchTogether = styled(`div`)`
     }
 `;
 
+const Tags = styled(`div`)`
+    color: rgb(249, 249, 249);
+    font-size: 0.875rem;
+    min-height: 20px;
+
+    @media (max-weight: 768px) {
+        font-size: 0.75rem;
+    }
+`;
+const Description = styled(`div`)`
+    line-height: 1.4;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    padding: 16px 0px;
+    color: rgb(249, 249, 249);
+
+    @media (max-weight: 768px) {
+        font-size: 0.875rem;
+    }
+`;
+
 const DetailsPage: React.FC = () => {
     return (
         <Container>
@@ -205,6 +226,8 @@ const DetailsPage: React.FC = () => {
                         </div>
                     </WatchTogether>
                 </Controls>
+                <Tags>Tags</Tags>
+                <Description>Description</Description>
             </ContentMeta>
         </Container>
     );
