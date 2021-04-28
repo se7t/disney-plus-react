@@ -214,10 +214,12 @@ const DetailsPage: React.FC = () => {
                 if (document.exists) {
                     setDetailsData(document.data());
                 } else {
+                    // eslint-disable-next-line no-console
                     console.log('Data not found.');
                 }
             })
             .catch((error: Error) => {
+                // eslint-disable-next-line no-console
                 console.log('Error fetching data:', error);
             });
     }, [id]);
