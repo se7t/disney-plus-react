@@ -2,6 +2,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectTrending } from '../features/movie/movieSlice';
 
 const Container = styled(`div`)`
     padding: 0 0 26px;
@@ -51,40 +53,30 @@ const TrendingItem = styled(`div`)`
 `;
 
 const Trending: React.FC = () => {
+    const movies = useSelector(selectTrending);
+
     return (
         <Container>
-            <h4>Trending</h4>
-            <TrendingList>
-                <TrendingItem>
-                    <Link to="#">
-                        <img src="/images/trending/moana.webp" alt="Moana" />
-                    </Link>
-                </TrendingItem>
-                <TrendingItem>
-                    <Link to="#">
-                        <img
-                            src="/images/trending/the-simpsons.webp"
-                            alt="The Simpsons"
-                        />
-                    </Link>
-                </TrendingItem>
-                <TrendingItem>
-                    <Link to="#">
-                        <img
-                            src="/images/trending/mickey-mouse-clubhouse.webp"
-                            alt="Mickey Mouse Clubhouse"
-                        />
-                    </Link>
-                </TrendingItem>
-                <TrendingItem>
-                    <Link to="#">
-                        <img
-                            src="/images/trending/tangled.webp"
-                            alt="Tangled"
-                        />
-                    </Link>
-                </TrendingItem>
-            </TrendingList>
+            {movies && (
+                <>
+                    <h4>Trending</h4>
+                    <TrendingList>
+                        {movies.map((movie) => {
+                            return (
+                                <TrendingItem key={movie.id}>
+                                    {movie.id}
+                                    <Link to={`/detail/${movie.id}`}>
+                                        <img
+                                            src={movie['card-image']}
+                                            alt={movie.title}
+                                        />
+                                    </Link>
+                                </TrendingItem>
+                            );
+                        })}
+                    </TrendingList>
+                </>
+            )}
         </Container>
     );
 };

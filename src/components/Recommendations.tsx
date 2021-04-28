@@ -1,7 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectRecommended } from '../features/movie/movieSlice';
 
 const Container = styled(`div`)`
     padding: 0 0 26px;
@@ -51,40 +52,30 @@ const RecommendationsItem = styled(`div`)`
 `;
 
 const Recommendations: React.FC = () => {
+    const movies = useSelector(selectRecommended);
+
     return (
         <Container>
-            <h4>Recommended for you</h4>
-            <RecommendationsList>
-                <RecommendationsItem>
-                    <Link to="#">
-                        <img src="/images/recommendations/bao.webp" alt="Bao" />
-                    </Link>
-                </RecommendationsItem>
-                <RecommendationsItem>
-                    <Link to="#">
-                        <img
-                            src="/images/recommendations/incredibles-2.webp"
-                            alt="Incredibles 2"
-                        />
-                    </Link>
-                </RecommendationsItem>
-                <RecommendationsItem>
-                    <Link to="#">
-                        <img
-                            src="/images/recommendations/auntie-edna.webp"
-                            alt="Auntie Edna"
-                        />
-                    </Link>
-                </RecommendationsItem>
-                <RecommendationsItem>
-                    <Link to="#">
-                        <img
-                            src="/images/recommendations/inside-out.webp"
-                            alt="Inside Out"
-                        />
-                    </Link>
-                </RecommendationsItem>
-            </RecommendationsList>
+            {movies && (
+                <>
+                    <h4>Recommended for you</h4>
+                    <RecommendationsList>
+                        {movies.map((movie) => {
+                            return (
+                                <RecommendationsItem key={movie.id}>
+                                    {movie.id}
+                                    <Link to={`/detail/${movie.id}`}>
+                                        <img
+                                            src={movie['card-image']}
+                                            alt={movie.title}
+                                        />
+                                    </Link>
+                                </RecommendationsItem>
+                            );
+                        })}
+                    </RecommendationsList>
+                </>
+            )}
         </Container>
     );
 };

@@ -2,6 +2,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectOriginals } from '../features/movie/movieSlice';
 
 const Container = styled(`div`)`
     padding: 0 0 26px;
@@ -51,37 +53,30 @@ const OriginalsItem = styled(`div`)`
 `;
 
 const Originals: React.FC = () => {
+    const movies = useSelector(selectOriginals);
+
     return (
         <Container>
-            <h4>Originals</h4>
-            <OriginalsList>
-                <OriginalsItem>
-                    <Link to="#">
-                        <img src="/images/originals/burrow.webp" alt="Burrow" />
-                    </Link>
-                </OriginalsItem>
-                <OriginalsItem>
-                    <Link to="#">
-                        <img src="/images/originals/soul.webp" alt="Soul" />
-                    </Link>
-                </OriginalsItem>
-                <OriginalsItem>
-                    <Link to="#">
-                        <img
-                            src="/images/originals/legends.webp"
-                            alt="Legends"
-                        />
-                    </Link>
-                </OriginalsItem>
-                <OriginalsItem>
-                    <Link to="#">
-                        <img
-                            src="/images/originals/assembled.webp"
-                            alt="Assembled"
-                        />
-                    </Link>
-                </OriginalsItem>
-            </OriginalsList>
+            {movies && (
+                <>
+                    <h4>Originals</h4>
+                    <OriginalsList>
+                        {movies.map((movie) => {
+                            return (
+                                <OriginalsItem key={movie.id}>
+                                    {movie.id}
+                                    <Link to={`/detail/${movie.id}`}>
+                                        <img
+                                            src={movie['card-image']}
+                                            alt={movie.title}
+                                        />
+                                    </Link>
+                                </OriginalsItem>
+                            );
+                        })}
+                    </OriginalsList>
+                </>
+            )}
         </Container>
     );
 };

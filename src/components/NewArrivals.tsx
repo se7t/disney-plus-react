@@ -2,6 +2,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectNewArrivals } from '../features/movie/movieSlice';
 
 const Container = styled(`div`)`
     padding: 0 0 26px;
@@ -51,46 +53,30 @@ const NewArrivalsItem = styled(`div`)`
 `;
 
 const NewArrivals: React.FC = () => {
+    const movies = useSelector(selectNewArrivals);
+
     return (
         <Container>
-            <h4>New to Disney+</h4>
-            <NewArrivalsList>
-                <NewArrivalsItem>
-                    <Link to="#">
-                        <img
-                            src="/images/new-arrivals/my-music-story.webp"
-                            alt="My Music Story"
-                        />
-                    </Link>
-                </NewArrivalsItem>
-                <NewArrivalsItem>
-                    <Link to="#">
-                        <img
-                            // eslint-disable-next-line max-len
-                            src="/images/new-arrivals/raya-and-the-last-dragon.webp"
-                            alt="Raya and the Last Dragon"
-                        />
-                    </Link>
-                </NewArrivalsItem>
-                <NewArrivalsItem>
-                    <Link to="#">
-                        <img
-                            // eslint-disable-next-line max-len
-                            src="/images/new-arrivals/the-falcon-and-the-winter-soldier.webp"
-                            alt="The Falcon and the Winter Soldier"
-                        />
-                    </Link>
-                </NewArrivalsItem>
-                <NewArrivalsItem>
-                    <Link to="#">
-                        <img
-                            // eslint-disable-next-line max-len
-                            src="/images/new-arrivals/garfield-a-tail-of-two-kitties.webp"
-                            alt="Garfield A Tail of Two Kitties"
-                        />
-                    </Link>
-                </NewArrivalsItem>
-            </NewArrivalsList>
+            {movies && (
+                <>
+                    <h4>New to Disney+</h4>
+                    <NewArrivalsList>
+                        {movies.map((movie) => {
+                            return (
+                                <NewArrivalsItem key={movie.id}>
+                                    {movie.id}
+                                    <Link to={`/detail/${movie.id}`}>
+                                        <img
+                                            src={movie['card-image']}
+                                            alt={movie.title}
+                                        />
+                                    </Link>
+                                </NewArrivalsItem>
+                            );
+                        })}
+                    </NewArrivalsList>
+                </>
+            )}
         </Container>
     );
 };
