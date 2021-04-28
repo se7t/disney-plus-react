@@ -64,7 +64,7 @@ const Trending: React.FC = () => {
                             return (
                                 <TrendingItem key={movie.id}>
                                     {movie.id}
-                                    <Link to={`/detail/${movie.id}`}>
+                                    <Link to={`/details/${movie.id}`}>
                                         <img
                                             src={movie['card-image']}
                                             alt={movie.title}

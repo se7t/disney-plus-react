@@ -64,7 +64,7 @@ const NewArrivals: React.FC = () => {
                             return (
                                 <NewArrivalsItem key={movie.id}>
                                     {movie.id}
-                                    <Link to={`/detail/${movie.id}`}>
+                                    <Link to={`/details/${movie.id}`}>
                                         <img
                                             src={movie['card-image']}
                                             alt={movie.title}
