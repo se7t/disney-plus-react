@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import styled from '@emotion/styled/macro';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { auth, provider } from '../firebase';
+import { auth } from '../firebase';
 import {
     selectUserName,
     selectUserPhoto,
@@ -173,12 +173,12 @@ const NavBar: React.FC = () => {
     const userName = useSelector(selectUserName);
     const userPhoto = useSelector(selectUserPhoto);
 
-    const setUser = (user: Record<string, string>): void => {
+    const setUser = (): void => {
         dispatch(
             setUserLoginDetails({
-                name: user.displayName as string,
-                email: user.email as string,
-                photo: user.photoURL as string,
+                name: 'Demo User',
+                email: 'demo@example.com',
+                photo: '/images/demo_avatar.svg',
             })
         );
     };
@@ -186,7 +186,7 @@ const NavBar: React.FC = () => {
     useEffect(() => {
         auth.onAuthStateChanged(async (user) => {
             if (user) {
-                setUser((user as unknown) as Record<string, string>);
+                setUser();
                 history.push('/browse');
             }
         });
@@ -195,9 +195,9 @@ const NavBar: React.FC = () => {
 
     const handleAuth: React.MouseEventHandler = () => {
         if (!userName) {
-            auth.signInWithPopup(provider)
-                .then((result: Record<string, unknown>) => {
-                    setUser(result.user as Record<string, string>);
+            auth.signInAnonymously()
+                .then(() => {
+                    setUser();
                 })
                 .catch((error: Error) => {
                     // eslint-disable-next-line no-alert
