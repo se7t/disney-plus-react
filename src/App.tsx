@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import BrowsePage from './components/BrowsePage';
 import DetailsPage from './components/DetailsPage';
+import SourceCode from './components/SourceCode';
 
 const App: React.FC = () => (
     <div className="App">
@@ -20,6 +21,7 @@ const App: React.FC = () => (
                     <DetailsPage />
                 </Route>
             </Switch>
+            <SourceCode />
         </Router>
     </div>
 );
